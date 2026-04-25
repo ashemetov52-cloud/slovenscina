@@ -488,7 +488,7 @@ async function callClaude(msgs) {
     const res = await fetch(WORKER + '/chat', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({messages: msgs.filter(m => m.role !== 'system').concat(), messages: msgs})
+      body: JSON.stringify({messages: msgs})
     });
     const data = await res.json();
     document.getElementById('chat-messages').lastChild.remove();
