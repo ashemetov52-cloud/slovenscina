@@ -1,0 +1,16 @@
+{
+  "name": "Slovenščina",
+  "short_name": "Slovenščina",
+  "description": "Учим словенский язык",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1a15",
+  "theme_color": "#0d1a15",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
