@@ -1,15 +1,16 @@
-{
-  "name": "Slovenščina",
-  "short_name": "Slovenščina",
-  "description": "Учим словенский язык",
-  "start_url": "/",
+﻿{
+  "name": "Slovenscina",
+  "short_name": "Slovenscina",
+  "description": "Ucim se slovenscino",
+  "start_url": "/slovenscina/",
+  "scope": "/slovenscina/",
   "display": "standalone",
   "background_color": "#0d1a15",
   "theme_color": "#0d1a15",
   "icons": [
     {
       "src": "icon.png",
-      "sizes": "192x192",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
