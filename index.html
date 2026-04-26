@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="sl">
 <head>
   <meta charset="UTF-8">
@@ -464,7 +464,7 @@ async function startLesson() {
   const res = await callClaude([{role:'user', content:'Начни урок'}]);
   if (res) {
     messages.push({role:'assistant', content:res});
-    addBubble(res, 'ai');
+    addBubble(renderMarkdown(res), 'ai');
   }
 }
 
@@ -478,7 +478,7 @@ async function sendMessage() {
   const res = await callClaude(messages);
   if (res) {
     messages.push({role:'assistant', content:res});
-    addBubble(res, 'ai');
+    addBubble(renderMarkdown(res), 'ai');
   }
 }
 
