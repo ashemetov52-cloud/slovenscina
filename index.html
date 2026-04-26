@@ -456,6 +456,13 @@ function addBubble(text, type) {
   div.scrollIntoView({behavior:'smooth'});
 }
 
+function renderMarkdown(text) {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/\n\n/g, '<br><br>')
+    .replace(/\n/g, '<br>');
+}
 async function startLesson() {
   messages = [{
     role: 'system',
