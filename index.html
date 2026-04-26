@@ -550,7 +550,21 @@ function login() {
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app').style.display = 'block';
   setGreeting();
-  loadProgress().then(() => renderLessonList());
+  loadProgress().then(() => { updateStreak(); renderLessonList(); });
+}
+
+function updateStreak() {
+  const today = new Date().toDateString();
+  const last = progress.lastVisit;
+  const yesterday = new Date(Date.now() - 86400000).toDateString();
+  if (last === today) return;
+  if (last === yesterday) {
+    progress.streak = (progress.streak || 0) + 1;
+  } else if (last !== today) {
+    progress.streak = 1;
+  }
+  progress.lastVisit = today;
+  saveProgress();
 }
 
 function setGreeting() {
