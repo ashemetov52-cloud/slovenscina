@@ -468,7 +468,7 @@ async function startLesson() {
     role: 'system',
     content: `Ты репетитор словенского языка. Студент: Алексей, русскоязычный, уровень A0, цель — переехать в Словению и открыть языковую школу. Текущий урок: 1.1 Приветствия и знакомство. Тема: pozdravljeni, živjo, dober dan, dobro jutro, dober večer, lahko noč, nasvidenje, представление Sem..., Moje ime je... Правила: отвечай на русском, словенские слова пиши через HTML тег <em>слово</em>, давай одно упражнение за раз, исправляй мягко, НЕ используй markdown (#, **, ---), отвечай кратко 3-5 предложений, сразу начни урок без вопросов.`
   }];
-  const res = await callClaude([{role:'user', content:'Начни урок'}]);
+  const res = await callClaude([...messages, {role:'user', content:'Начни урок'}]);
   if (res) {
     messages.push({role:'assistant', content:res});
     addBubble(renderMarkdown(res), 'ai');
