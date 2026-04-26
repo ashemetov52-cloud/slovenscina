@@ -542,6 +542,203 @@ const LESSONS = [
   }
 ];
 
+const LESSONS_A2 = [
+  {
+    id: "2.1", title: "В городе — диалоги", meta: "~35 мин · 12 слов",
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1+. Урок 2.1 "В городе — диалоги". Тема: спрашивать дорогу, объяснять маршрут, диалоги в городе. Слова: oprostite (извините), kje je (где находится), kako pridem do (как добраться до), zavijte (поверните), prečkajte (перейдите), nasproti (напротив), poleg (рядом), med (между), na vogalu (на углу), koliko časa (сколько времени), peš (пешком), z avtobusom (на автобусе). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:"oprostite",t:"извините",ex:"Oprostite, kje je banka?",ctx:"Вежливое обращение"},
+      {w:"kje je",t:"где находится",ex:"Kje je postaja?",ctx:"Вопрос о месте"},
+      {w:"kako pridem do",t:"как добраться до",ex:"Kako pridem do centra?",ctx:"Маршрут"},
+      {w:"zavijte",t:"поверните",ex:"Zavijte levo.",ctx:"Направление"},
+      {w:"prečkajte",t:"перейдите",ex:"Prečkajte cesto.",ctx:"Направление"},
+      {w:"nasproti",t:"напротив",ex:"Nasproti banke.",ctx:"Расположение"},
+      {w:"poleg",t:"рядом",ex:"Poleg trgovine.",ctx:"Расположение"},
+      {w:"na vogalu",t:"на углу",ex:"Na vogalu ulice.",ctx:"Расположение"},
+      {w:"peš",t:"пешком",ex:"Gremo peš.",ctx:"Способ передвижения"},
+      {w:"z avtobusom",t:"на автобусе",ex:"Pridem z avtobusom.",ctx:"Транспорт"},
+    ]
+  },
+  {
+    id: "2.2", title: "В магазине", meta: "~35 мин · 12 слов",
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1+. Урок 2.2 "В магазине". Разыграй диалог покупки в словенском магазине. Слова: iščem (ищу), ali imate (у вас есть), želim (хочу), probati (примерить), velikost (размер), barva (цвет), ugaja mi (мне нравится), ne ugaja (не нравится), predrago (слишком дорого), popust (скидка), plačam (плачу), z gotovino/kartico (наличными/картой). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:"iščem",t:"ищу",ex:"Iščem majico.",ctx:"Покупки"},
+      {w:"ali imate",t:"у вас есть",ex:"Ali imate to v modri?",ctx:"Вопрос"},
+      {w:"probati",t:"примерить",ex:"Lahko probam?",ctx:"Примерка"},
+      {w:"ugaja mi",t:"мне нравится",ex:"To mi ugaja.",ctx:"Оценка"},
+      {w:"predrago",t:"слишком дорого",ex:"To je predrago.",ctx:"Цена"},
+      {w:"z gotovino",t:"наличными",ex:"Plačam z gotovino.",ctx:"Оплата"},
+      {w:"z kartico",t:"картой",ex:"Plačam z kartico.",ctx:"Оплата"},
+      {w:"račun",t:"чек/счёт",ex:"Račun, prosim.",ctx:"Оплата"},
+      {w:"vrečka",t:"пакет",ex:"Vrečko, prosim.",ctx:"Покупки"},
+      {w:"izmenjava",t:"обмен",ex:"Ali lahko izmenjam?",ctx:"Возврат"},
+    ]
+  },
+  {
+    id: "2.3", title: "Здоровье и врач", meta: "~35 мин · 12 слов",
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1+. Урок 2.3 "Здоровье и врач". Тема: жаловаться на здоровье, визит к врачу. Слова: boli me (болит), glava (голова), trebuh (живот), grlo (горло), vročina (температура), prehlajen (простужен), zdravnik (врач), recept (рецепт), lekarna (аптека), tablete (таблетки), počitek (отдых), naročiti se (записаться). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:"boli me",t:"у меня болит",ex:"Boli me glava.",ctx:"Симптомы"},
+      {w:"glava",t:"голова",ex:"Boli me glava.",ctx:"Части тела"},
+      {w:"trebuh",t:"живот",ex:"Boli me trebuh.",ctx:"Части тела"},
+      {w:"grlo",t:"горло",ex:"Boli me grlo.",ctx:"Части тела"},
+      {w:"vročina",t:"температура",ex:"Imam vročino.",ctx:"Симптомы"},
+      {w:"prehlajen",t:"простужен",ex:"Sem prehlajen.",ctx:"Симптомы"},
+      {w:"recept",t:"рецепт",ex:"Imam recept.",ctx:"Аптека"},
+      {w:"tablete",t:"таблетки",ex:"Tablete trikrat na dan.",ctx:"Лекарства"},
+      {w:"počitek",t:"отдых",ex:"Potrebujem počitek.",ctx:"Лечение"},
+      {w:"naročiti se",t:"записаться",ex:"Naročim se k zdravniku.",ctx:"Врач"},
+    ]
+  },
+  {
+    id: "2.4", title: "Дом и квартира", meta: "~30 мин · 12 слов",
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1+, планирует снять квартиру в Словении. Урок 2.4 "Дом и квартира". Тема: искать жильё, описывать квартиру. Слова: stanovanje (квартира), hiša (дом), soba (комната), kuhinja (кухня), kopalnica (ванная), najemnina (аренда), ogrevanje (отопление), vključeno (включено), nadstropje (этаж), dvigalo (лифт), parkirišče (парковка), hišnik (управдом). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:"stanovanje",t:"квартира",ex:"Iščem stanovanje.",ctx:"Жильё"},
+      {w:"hiša",t:"дом",ex:"Lepa hiša.",ctx:"Жильё"},
+      {w:"soba",t:"комната",ex:"Dve sobi.",ctx:"Жильё"},
+      {w:"kuhinja",t:"кухня",ex:"Velika kuhinja.",ctx:"Комнаты"},
+      {w:"kopalnica",t:"ванная",ex:"Kopalnica z kadjo.",ctx:"Комнаты"},
+      {w:"najemnina",t:"аренда",ex:"Koliko je najemnina?",ctx:"Цена"},
+      {w:"ogrevanje",t:"отопление",ex:"Ogrevanje je vključeno.",ctx:"Коммуналка"},
+      {w:"vključeno",t:"включено",ex:"Ali je internet vključen?",ctx:"Условия"},
+      {w:"nadstropje",t:"этаж",ex:"Tretje nadstropje.",ctx:"Здание"},
+      {w:"parkirišče",t:"парковка",ex:"Imam parkirišče.",ctx:"Удобства"},
+    ]
+  },
+  {
+    id: "2.5", title: "Еда и рецепты", meta: "~30 мин · 12 слов",
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1+. Урок 2.5 "Еда и рецепты". Тема: словенская кухня, рецепты, продукты. Слова: potica (потица — нац. блюдо), žganci (жганцы), jota (йота — суп), kranjska klobasa (краньская колбаса), sestavine (ингредиенты), kuhati (готовить), speči (испечь), dodati (добавить), zmešati (смешать), posoliti (посолить), okusno (вкусно), recept (рецепт). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:"potica",t:"потица (нац. пирог)",ex:"Potica je slovenska.",ctx:"Словенская кухня"},
+      {w:"kranjska klobasa",t:"краньская колбаса",ex:"Kranjska klobasa z gorčico.",ctx:"Словенская кухня"},
+      {w:"sestavine",t:"ингредиенты",ex:"Katere sestavine?",ctx:"Рецепт"},
+      {w:"kuhati",t:"готовить",ex:"Kuham kosilo.",ctx:"Готовка"},
+      {w:"speči",t:"испечь",ex:"Spečem kruh.",ctx:"Готовка"},
+      {w:"dodati",t:"добавить",ex:"Dodaj sol.",ctx:"Готовка"},
+      {w:"zmešati",t:"смешать",ex:"Zmešaj sestavine.",ctx:"Готовка"},
+      {w:"posoliti",t:"посолить",ex:"Posolite po okusu.",ctx:"Готовка"},
+      {w:"okusno",t:"вкусно",ex:"To je okusno!",ctx:"Оценка"},
+      {w:"recept",t:"рецепт",ex:"Imaš recept?",ctx:"Рецепт"},
+    ]
+  },
+  {
+    id: "2.6", title: "Работа и резюме", meta: "~40 мин · 12 слов",
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1+, планирует открыть языковую школу в Словении. Урок 2.6 "Работа и резюме". Тема: собеседование, резюме, рабочие отношения. Слова: izkušnje (опыт), izobrazba (образование), spretnosti (навыки), prijava (заявление), razgovor (собеседование), delodajalec (работодатель), delavec (работник), pogodba (договор), poskusna doba (испытательный срок), delovni čas (рабочее время), dopust (отпуск), odpoved (увольнение). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:"izkušnje",t:"опыт",ex:"Imam izkušnje.",ctx:"Резюме"},
+      {w:"izobrazba",t:"образование",ex:"Visoka izobrazba.",ctx:"Резюме"},
+      {w:"razgovor",t:"собеседование",ex:"Imam razgovor.",ctx:"Работа"},
+      {w:"delodajalec",t:"работодатель",ex:"Dober delodajalec.",ctx:"Работа"},
+      {w:"pogodba",t:"договор",ex:"Podpišem pogodbo.",ctx:"Работа"},
+      {w:"poskusna doba",t:"испытательный срок",ex:"Tri mesece poskusna doba.",ctx:"Работа"},
+      {w:"delovni čas",t:"рабочее время",ex:"Polni delovni čas.",ctx:"Работа"},
+      {w:"dopust",t:"отпуск",ex:"Grem na dopust.",ctx:"Работа"},
+      {w:"plača",t:"зарплата",ex:"Kakšna je plača?",ctx:"Работа"},
+      {w:"odpoved",t:"увольнение",ex:"Dobil sem odpoved.",ctx:"Работа"},
+    ]
+  },
+  {
+    id: "2.7", title: "Банк и финансы", meta: "~30 мин · 10 слов",
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A2, переехал в Словению. Урок 2.7 "Банк и финансы". Тема: открыть счёт, банковские операции. Слова: bančni račun (банковский счёт), odpreti račun (открыть счёт), nakazilo (перевод), dvig (снятие), polog (пополнение), kredit (кредит), obresti (проценты), kartica (карта), PIN, izpisek (выписка). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:"bančni račun",t:"банковский счёт",ex:"Odprem bančni račun.",ctx:"Банк"},
+      {w:"odpreti račun",t:"открыть счёт",ex:"Rad bi odprl račun.",ctx:"Банк"},
+      {w:"nakazilo",t:"перевод",ex:"Naredim nakazilo.",ctx:"Операции"},
+      {w:"dvig",t:"снятие наличных",ex:"Dvig na bankomatu.",ctx:"Операции"},
+      {w:"polog",t:"пополнение",ex:"Naredim polog.",ctx:"Операции"},
+      {w:"kredit",t:"кредит",ex:"Vzamem kredit.",ctx:"Финансы"},
+      {w:"kartica",t:"карта",ex:"Plačam s kartico.",ctx:"Оплата"},
+      {w:"izpisek",t:"выписка",ex:"Prejel sem izpisek.",ctx:"Банк"},
+      {w:"bankomat",t:"банкомат",ex:"Kje je bankomat?",ctx:"Банк"},
+      {w:"menjava",t:"обмен валюты",ex:"Menjava valut.",ctx:"Финансы"},
+    ]
+  },
+  {
+    id: "2.8", title: "Словенская культура", meta: "~30 мин · 10 слов",
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A2. Урок 2.8 "Словенская культура и традиции". Тема: праздники, традиции, культура Словении. Слова: praznik (праздник), pustovanje (карнавал), Miklavž (Николай), kurenti (курenti — персонажи карнавала), Triglav (Триглав), Soča (Соча), Bled (Блед), Ljubljana (Любляна), kultura (культура), tradicija (традиция). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:"praznik",t:"праздник",ex:"Danes je praznik.",ctx:"Культура"},
+      {w:"pustovanje",t:"карнавал/масленица",ex:"Pustovanje je februarja.",ctx:"Традиции"},
+      {w:"Miklavž",t:"Святой Николай",ex:"Miklavž pride decembra.",ctx:"Традиции"},
+      {w:"Triglav",t:"Триглав (гора)",ex:"Triglav je najvišja gora.",ctx:"Природа"},
+      {w:"Soča",t:"Соча (река)",ex:"Reka Soča je zelena.",ctx:"Природа"},
+      {w:"Bled",t:"Блед (озеро)",ex:"Blejsko jezero je lepo.",ctx:"Достопримечательности"},
+      {w:"Ljubljana",t:"Любляна",ex:"Ljubljana je glavno mesto.",ctx:"Города"},
+      {w:"kultura",t:"культура",ex:"Bogata kultura.",ctx:"Общее"},
+      {w:"tradicija",t:"традиция",ex:"Stara tradicija.",ctx:"Общее"},
+      {w:"glasba",t:"музыка",ex:"Slovenska glasba.",ctx:"Культура"},
+    ]
+  },
+  {
+    id: "2.9", title: "Путешествия и отдых", meta: "~30 мин · 10 слов",
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A2. Урок 2.9 "Путешествия и отдых". Тема: планировать поездку, отель, туризм. Слова: potovanje (путешествие), počitnice (каникулы/отпуск), rezervacija (бронирование), soba (номер), zajtrk (завтрак), odjaviti se (выехать), vpisati se (зарегистрироваться), karta (билет), tujina (заграница), turistična agencija (турагентство). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:"potovanje",t:"путешествие",ex:"Lepo potovanje!",ctx:"Туризм"},
+      {w:"počitnice",t:"отпуск/каникулы",ex:"Grem na počitnice.",ctx:"Отдых"},
+      {w:"rezervacija",t:"бронирование",ex:"Imam rezervacijo.",ctx:"Отель"},
+      {w:"zajtrk",t:"завтрак",ex:"Zajtrk je vključen.",ctx:"Отель"},
+      {w:"odjaviti se",t:"выехать",ex:"Odjavljam se.",ctx:"Отель"},
+      {w:"karta",t:"билет",ex:"Karta za vlak.",ctx:"Транспорт"},
+      {w:"tujina",t:"заграница",ex:"Grem v tujino.",ctx:"Путешествие"},
+      {w:"potni list",t:"паспорт",ex:"Kje je potni list?",ctx:"Документы"},
+      {w:"vizum",t:"виза",ex:"Potrebujem vizum?",ctx:"Документы"},
+      {w:"zavarovanje",t:"страховка",ex:"Potovalno zavarovanje.",ctx:"Документы"},
+    ]
+  },
+  {
+    id: "2.10", title: "Спорт и хобби", meta: "~25 мин · 10 слов",
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A2. Урок 2.10 "Спорт и хобби". Тема: рассказывать о хобби и спорте. Слова: šport (спорт), planinarjenje (поход в горы), kolesarjenje (езда на велосипеде), plavanje (плавание), smučanje (лыжи), glasba (музыка), branje (чтение), kuhanje (готовка), fotografiranje (фото), prosti čas (свободное время). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:"šport",t:"спорт",ex:"Rad imam šport.",ctx:"Хобби"},
+      {w:"planinarjenje",t:"поход в горы",ex:"Grem na planinarjenje.",ctx:"Спорт"},
+      {w:"kolesarjenje",t:"велоспорт",ex:"Rad kolesarim.",ctx:"Спорт"},
+      {w:"plavanje",t:"плавание",ex:"Grem na plavanje.",ctx:"Спорт"},
+      {w:"smučanje",t:"лыжи",ex:"Gremo smučat.",ctx:"Спорт"},
+      {w:"branje",t:"чтение",ex:"Rad berem.",ctx:"Хобби"},
+      {w:"kuhanje",t:"готовка",ex:"Kuhanje je moj hobi.",ctx:"Хобби"},
+      {w:"fotografiranje",t:"фотография",ex:"Rad fotografiram.",ctx:"Хобби"},
+      {w:"prosti čas",t:"свободное время",ex:"V prostem času.",ctx:"Общее"},
+      {w:"telovadba",t:"гимнастика/фитнес",ex:"Grem na telovadbo.",ctx:"Спорт"},
+    ]
+  },
+  {
+    id: "2.11", title: "Интернет и технологии", meta: "~25 мин · 10 слов",
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, ИТ-менеджер, уровень A2. Урок 2.11 "Интернет и технологии". Тема: технологии, интернет, работа с техникой. Слова: internet (интернет), spletna stran (сайт), geslo (пароль), račun (аккаунт), naložiti (скачать), namestiti (установить), posodobiti (обновить), naprava (устройство), aplikacija (приложение), podpora (поддержка). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:"internet",t:"интернет",ex:"Imate internet?",ctx:"Технологии"},
+      {w:"spletna stran",t:"сайт",ex:"Obiščem spletno stran.",ctx:"Интернет"},
+      {w:"geslo",t:"пароль",ex:"Pozabil sem geslo.",ctx:"Аккаунт"},
+      {w:"naložiti",t:"скачать",ex:"Naložim aplikacijo.",ctx:"Действия"},
+      {w:"namestiti",t:"установить",ex:"Namestim program.",ctx:"Действия"},
+      {w:"posodobiti",t:"обновить",ex:"Posodobim sistem.",ctx:"Действия"},
+      {w:"naprava",t:"устройство",ex:"Nova naprava.",ctx:"Техника"},
+      {w:"aplikacija",t:"приложение",ex:"Uporabim aplikacijo.",ctx:"Техника"},
+      {w:"podpora",t:"поддержка",ex:"Tehnična podpora.",ctx:"Техника"},
+      {w:"brezžično",t:"беспроводной/WiFi",ex:"Brezžično omrežje.",ctx:"Интернет"},
+    ]
+  },
+  {
+    id: "2.12", title: "Повторение A2", meta: "~45 мин · все темы",
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, завершил все уроки A2. Урок 2.12 "Повторение A2". Проведи итоговое занятие: составьте вместе рассказ о жизни Алексея в Словении — квартира, работа, покупки, здоровье, хобби. Используй все темы A2. Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни повторение.`,
+    vocab: [
+      {w:"živim v Sloveniji",t:"я живу в Словении",ex:"Živim v Ljubljani.",ctx:"A2 итог"},
+      {w:"delam kot",t:"работаю как",ex:"Delam kot direktor.",ctx:"A2 итог"},
+      {w:"govorim slovensko",t:"говорю по-словенски",ex:"Govorim malo slovensko.",ctx:"A2 итог"},
+      {w:"všeč mi je",t:"мне нравится",ex:"Všeč mi je Slovenija.",ctx:"A2 итог"},
+      {w:"navadil sem se",t:"я привык",ex:"Navadil sem se na Slovenijo.",ctx:"A2 итог"},
+      {w:"načrtujem",t:"планирую",ex:"Načrtujem odpreti šolo.",ctx:"A2 итог"},
+      {w:"uspelo mi je",t:"мне удалось",ex:"Uspelo mi je.",ctx:"A2 итог"},
+      {w:"še vedno se učim",t:"я всё ещё учусь",ex:"Še vedno se učim.",ctx:"A2 итог"},
+      {w:"ponosen sem",t:"я горжусь",ex:"Ponosen sem nase.",ctx:"A2 итог"},
+      {w:"naprej",t:"вперёд",ex:"Gremo naprej!",ctx:"Мотивация"},
+    ]
+  }
+];
+
+const ALL_LESSONS = [...LESSONS, ...LESSONS_A2];
+
 // ─── ЛОГИН ───────────────────────────────────────────────
 function login() {
   const key = document.getElementById('user-key').value.trim();
@@ -620,7 +817,17 @@ function renderLessonList() {
   container.innerHTML = '';
   const lessonProgress = progress.lessons_progress || {};
 
-  LESSONS.forEach(lesson => {
+  const phases = [
+    {label: "УРОКИ A1 — ФАЗА 1", lessons: LESSONS},
+    {label: "УРОКИ A2 — ФАЗА 2", lessons: LESSONS_A2}
+  ];
+  phases.forEach(phase => {
+    const lbl = document.createElement("div");
+    lbl.className = "section-lbl";
+    lbl.style.paddingLeft = "0";
+    lbl.textContent = phase.label;
+    container.appendChild(lbl);
+    phase.lessons.forEach(lesson => {
     const lp = lessonProgress[lesson.id] || 'new';
     const numClass = lp === 'done' ? 'done' : lp === 'progress' ? 'active' : '';
     const statusText = lp === 'done' ? 'Завершён' : lp === 'progress' ? 'В процессе' : 'Новый';
@@ -643,6 +850,7 @@ function renderLessonList() {
     cardsBtn.onclick = (e) => { e.stopPropagation(); openCards(lesson); };
     row.querySelector('.lesson-status').before(cardsBtn);
     container.appendChild(row);
+    });
   });
 }
 
