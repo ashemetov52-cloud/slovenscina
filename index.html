@@ -637,6 +637,11 @@ function renderLessonList() {
       <div class="lesson-status ${statusClass}">${statusText}</div>
     `;
     row.onclick = () => openLesson(lesson);
+    const cardsBtn = document.createElement('button');
+    cardsBtn.textContent = 'карточки';
+    cardsBtn.style.cssText = 'margin-left:8px;padding:4px 10px;border-radius:8px;background:rgba(200,169,110,0.1);border:0.5px solid var(--gold-dim);color:var(--gold);font-size:10px;cursor:pointer;font-family:DM Sans,sans-serif;';
+    cardsBtn.onclick = (e) => { e.stopPropagation(); openCards(lesson); };
+    row.querySelector('.lesson-status').before(cardsBtn);
     container.appendChild(row);
   });
 }
