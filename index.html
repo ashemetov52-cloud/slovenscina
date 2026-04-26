@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="sl">
 <head>
   <meta charset="UTF-8">
@@ -49,31 +49,23 @@
     .hero-sub { font-size: 11px; color: var(--text3); margin-top: 4px; letter-spacing: .06em; text-transform: uppercase; }
     .hero-badge { position: absolute; top: 16px; right: 18px; background: rgba(45,156,110,0.2); border: 0.5px solid var(--green); border-radius: 20px; padding: 4px 12px; font-size: 11px; color: var(--green-light); font-weight: 500; }
 
-    /* CARDS */
+    /* SECTION LABEL */
     .section-lbl { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: .08em; padding: 14px 20px 6px; }
-    .lesson-card { margin: 16px; background: var(--surface); border: 0.5px solid var(--border2); border-radius: 18px; overflow: hidden; }
-    .lesson-card-top { padding: 14px 16px 10px; border-bottom: 0.5px solid var(--border); }
-    .lesson-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
-    .lesson-title { font-family: 'Crimson Pro', serif; font-size: 20px; color: var(--text); }
-    .lesson-meta { font-size: 11px; color: var(--text3); margin-top: 2px; }
-    .progress-track { height: 3px; background: var(--bg3); border-radius: 2px; margin-top: 10px; }
-    .progress-fill { height: 3px; border-radius: 2px; background: linear-gradient(90deg, var(--green), var(--green-light)); }
-    .lesson-card-bottom { padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; }
-    .continue-btn { background: var(--green); border: none; border-radius: 10px; padding: 8px 16px; font-size: 12px; font-weight: 500; color: #fff; cursor: pointer; font-family: 'DM Sans', sans-serif; }
 
-    .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 16px; margin-bottom: 10px; }
-    .action-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 16px; padding: 14px; cursor: pointer; position: relative; }
-    .action-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
-    .action-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
-    .action-sub { font-size: 11px; color: var(--text3); }
-    .action-badge { position: absolute; top: 10px; right: 10px; font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 500; }
-    .badge-green { background: rgba(45,156,110,0.2); color: var(--green-light); }
-    .badge-gold { background: rgba(200,169,110,0.15); color: var(--gold); }
-
-    .stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; padding: 0 16px; margin-bottom: 16px; }
-    .stat-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 14px; padding: 12px 10px; text-align: center; }
-    .stat-num { font-family: 'Crimson Pro', serif; font-size: 24px; color: var(--text); }
-    .stat-lbl { font-size: 10px; color: var(--text3); margin-top: 3px; }
+    /* LESSON LIST */
+    .lesson-list { padding: 0 16px; }
+    .lesson-row { background: var(--surface); border: 0.5px solid var(--border); border-radius: 16px; padding: 14px 16px; margin-bottom: 8px; cursor: pointer; display: flex; align-items: center; gap: 12px; transition: border-color 0.2s; }
+    .lesson-row:active { border-color: var(--green); }
+    .lesson-num { width: 36px; height: 36px; border-radius: 10px; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-family: 'Crimson Pro', serif; font-size: 16px; color: var(--text3); flex-shrink: 0; }
+    .lesson-num.done { background: rgba(45,156,110,0.2); color: var(--green-light); }
+    .lesson-num.active { background: rgba(45,156,110,0.3); color: var(--green-light); }
+    .lesson-info { flex: 1; }
+    .lesson-row-title { font-size: 14px; font-weight: 500; color: var(--text); }
+    .lesson-row-meta { font-size: 11px; color: var(--text3); margin-top: 2px; }
+    .lesson-status { font-size: 10px; padding: 3px 8px; border-radius: 8px; }
+    .status-done { background: rgba(45,156,110,0.15); color: var(--green-light); }
+    .status-progress { background: rgba(200,169,110,0.15); color: var(--gold); }
+    .status-new { background: var(--bg3); color: var(--text3); }
 
     /* FLASHCARDS */
     .cards-header { padding: 16px 20px 8px; display: flex; align-items: center; gap: 10px; border-bottom: 0.5px solid var(--border); }
@@ -108,7 +100,6 @@
     .bubble { margin: 6px 16px; padding: 11px 14px; border-radius: 16px; font-size: 13px; line-height: 1.55; }
     .bubble-ai { background: var(--surface); border: 0.5px solid var(--border); color: var(--text); border-bottom-left-radius: 4px; margin-right: 40px; }
     .bubble-user { background: var(--green-muted); color: #c8e8d8; border-bottom-right-radius: 4px; margin-left: 40px; }
-    .bubble-correct { color: var(--green-light); font-weight: 500; }
     .input-area { position: fixed; bottom: 64px; left: 50%; transform: translateX(-50%); width: 100%; max-width: 420px; display: flex; gap: 8px; padding: 10px 14px; border-top: 0.5px solid var(--border); background: var(--bg2); }
     .input-area input { flex: 1; background: var(--surface); border: 0.5px solid var(--border2); border-radius: 12px; padding: 9px 12px; font-size: 13px; color: var(--text); font-family: 'DM Sans', sans-serif; outline: none; }
     .send-btn { width: 38px; height: 38px; border-radius: 12px; background: var(--green); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -127,12 +118,21 @@
     .phase-fill { height: 6px; border-radius: 3px; background: linear-gradient(90deg, var(--green), var(--green-light)); transition: width 0.5s; }
     .phase-meta { display: flex; justify-content: space-between; margin-top: 5px; font-size: 11px; color: var(--text3); }
 
+    /* STATS ROW */
+    .stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; padding: 0 16px; margin-bottom: 16px; }
+    .stat-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 14px; padding: 12px 10px; text-align: center; }
+    .stat-num { font-family: 'Crimson Pro', serif; font-size: 24px; color: var(--text); }
+    .stat-lbl { font-size: 10px; color: var(--text3); margin-top: 3px; }
+
     /* LOGIN */
     .login-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 40px 24px; }
     .login-title { font-family: 'Crimson Pro', serif; font-size: 36px; color: var(--text); margin-bottom: 8px; }
     .login-sub { font-size: 13px; color: var(--text3); margin-bottom: 40px; text-align: center; }
     .login-input { width: 100%; background: var(--surface); border: 0.5px solid var(--border2); border-radius: 14px; padding: 14px 16px; font-size: 15px; color: var(--text); font-family: 'DM Sans', sans-serif; outline: none; margin-bottom: 12px; }
     .login-btn { width: 100%; background: var(--green); border: none; border-radius: 14px; padding: 14px; font-size: 15px; font-weight: 500; color: #fff; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+
+    /* REPEAT BTN */
+    .repeat-btn { margin: 0 16px 8px; padding: 10px; border-radius: 12px; background: var(--bg3); border: 0.5px solid var(--border); color: var(--text3); font-size: 12px; cursor: pointer; text-align: center; font-family: 'DM Sans', sans-serif; }
   </style>
 </head>
 <body>
@@ -156,42 +156,10 @@
         <path d="M0,120 L0,85 L70,60 L130,80 L180,50 L230,70 L280,55 L340,75 L420,65 L420,120Z" fill="#0a1f16"/>
         <path d="M140,28 L150,20 L160,28Z" fill="rgba(255,255,255,0.08)"/>
       </svg>
-      <div class="hero-badge" id="hero-badge">A1 · Неделя 1</div>
+      <div class="hero-badge">A1 · Неделя 1</div>
       <div class="hero-text">
         <div class="hero-greeting" id="hero-greeting">Dober dan</div>
         <div class="hero-sub" id="hero-sub">Добрый день · начинаем</div>
-      </div>
-    </div>
-
-    <div class="lesson-card">
-      <div class="lesson-card-top">
-        <div class="lesson-label">Текущий урок</div>
-        <div class="lesson-title">Приветствия и знакомство</div>
-        <div class="lesson-meta">Урок 1.1 · Фаза 1 · ~30 мин</div>
-        <div class="progress-track"><div class="progress-fill" id="lesson-progress" style="width:0%"></div></div>
-      </div>
-      <div class="lesson-card-bottom">
-        <span style="font-size:11px;color:var(--text3)" id="lesson-pct">Не начат</span>
-        <button class="continue-btn" onclick="goTo('s-chat')">Начать урок →</button>
-      </div>
-    </div>
-
-    <div class="section-lbl">Сегодня</div>
-    <div class="action-grid">
-      <div class="action-card" onclick="goTo('s-cards')">
-        <div class="action-badge badge-gold" id="cards-count">20</div>
-        <div class="action-icon" style="background:rgba(200,169,110,0.1)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#c8a96e" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M8 4v16M16 4v16"/></svg>
-        </div>
-        <div class="action-title">Карточки</div>
-        <div class="action-sub">Слова дня</div>
-      </div>
-      <div class="action-card" onclick="goTo('s-chat')">
-        <div class="action-icon" style="background:rgba(45,156,110,0.1)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2d9c6e" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-        </div>
-        <div class="action-title">Практика</div>
-        <div class="action-sub">Диалог с Claude</div>
       </div>
     </div>
 
@@ -210,16 +178,19 @@
         <div class="stat-lbl">точность</div>
       </div>
     </div>
+
+    <div class="section-lbl">Уроки A1 — Фаза 1</div>
+    <div class="lesson-list" id="lesson-list"></div>
   </div>
 
   <!-- FLASHCARDS -->
   <div class="screen" id="s-cards">
     <div class="cards-header">
       <span class="back-btn" onclick="goTo('s-home')">←</span>
-      <span class="cards-title">Kartica</span>
+      <span class="cards-title" id="cards-screen-title">Kartica</span>
       <span class="cards-count" id="fc-count">1 / 10</span>
     </div>
-    <div style="padding:0 16px 8px"><div class="progress-track"><div class="progress-fill" id="fc-progress" style="width:10%"></div></div></div>
+    <div style="padding:0 16px 8px"><div class="progress-track" style="height:3px;background:var(--bg3);border-radius:2px"><div class="progress-fill" id="fc-progress" style="width:10%;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--green),var(--green-light))"></div></div></div>
     <div class="flashcard" onclick="flipCard()">
       <div class="card-nature">
         <svg style="position:absolute;bottom:0;left:0;right:0;width:100%" viewBox="0 0 420 100" preserveAspectRatio="none">
@@ -227,7 +198,7 @@
         </svg>
         <div class="card-word" id="fc-word">pozdravljeni</div>
       </div>
-      <div class="card-body" id="fc-body">
+      <div class="card-body">
         <div class="card-hint" id="fc-hint">нажмите чтобы увидеть перевод</div>
         <div id="fc-answer" style="display:none">
           <div class="card-translation" id="fc-trans">здравствуйте</div>
@@ -258,6 +229,7 @@
       <span class="pause-text">Нужно прерваться?</span>
       <button class="pause-btn" onclick="saveCheckpoint()">Сохранить место</button>
     </div>
+    <button class="repeat-btn" onclick="repeatLesson()">↺ Начать урок заново</button>
     <div class="chat-messages" id="chat-messages"></div>
     <div class="input-area">
       <input type="text" id="chat-input" placeholder="Ваш ответ..." onkeydown="if(event.key==='Enter')sendMessage()">
@@ -271,7 +243,7 @@
   <div class="screen" id="s-progress">
     <div class="progress-header">
       <div class="progress-title">Мой прогресс</div>
-      <div class="progress-sub" id="progress-phase">Фаза 1 · A1 · Неделя 1</div>
+      <div class="progress-sub">Фаза 1 · A1 · Неделя 1</div>
     </div>
     <div class="big-stats">
       <div class="big-stat"><div class="big-num" id="p-words">0</div><div class="big-lbl">слов изучено</div></div>
@@ -287,18 +259,18 @@
     </div>
     <div class="phase-bar">
       <div class="phase-title">Фаза 2 — Интеграция (A2)</div>
-      <div class="phase-track"><div class="phase-fill" id="phase2-fill" style="width:0%"></div></div>
-      <div class="phase-meta"><span>Месяцы 4–6</span><span id="phase2-pct">0%</span></div>
+      <div class="phase-track"><div class="phase-fill" style="width:0%"></div></div>
+      <div class="phase-meta"><span>Месяцы 4–6</span><span>0%</span></div>
     </div>
     <div class="phase-bar">
       <div class="phase-title">Фаза 3 — Работа (B1)</div>
-      <div class="phase-track"><div class="phase-fill" id="phase3-fill" style="width:0%"></div></div>
-      <div class="phase-meta"><span>Месяцы 7–9</span><span id="phase3-pct">0%</span></div>
+      <div class="phase-track"><div class="phase-fill" style="width:0%"></div></div>
+      <div class="phase-meta"><span>Месяцы 7–9</span><span>0%</span></div>
     </div>
     <div class="phase-bar">
       <div class="phase-title">Фаза 4 — Свобода (B1+)</div>
-      <div class="phase-track"><div class="phase-fill" id="phase4-fill" style="width:0%"></div></div>
-      <div class="phase-meta"><span>Месяцы 10–12</span><span id="phase4-pct">0%</span></div>
+      <div class="phase-track"><div class="phase-fill" style="width:0%"></div></div>
+      <div class="phase-meta"><span>Месяцы 10–12</span><span>0%</span></div>
     </div>
   </div>
 
@@ -332,42 +304,263 @@ let messages = [];
 let flipped = false;
 let cardIndex = 0;
 let correct = 0, total = 0;
+let currentLesson = null;
 
-const vocab = [
-  {w:'pozdravljeni',t:'здравствуйте',ex:'Pozdravljeni v Sloveniji!',ctx:'Формальное приветствие'},
-  {w:'živjo',t:'привет',ex:'Živjo, kako si?',ctx:'Неформально'},
-  {w:'hvala',t:'спасибо',ex:'Hvala lepa!',ctx:'hvala lepa = большое спасибо'},
-  {w:'prosim',t:'пожалуйста',ex:'Prosim, en kava.',ctx:'Также: пожалуйста (в ответ)'},
-  {w:'ja / ne',t:'да / нет',ex:'Ja, razumem.',ctx:'Базовые ответы'},
-  {w:'dober dan',t:'добрый день',ex:'Dober dan, sem Ana.',ctx:'Официальное приветствие'},
-  {w:'dobro jutro',t:'доброе утро',ex:'Dobro jutro!',ctx:'До 12:00'},
-  {w:'lahko noč',t:'спокойной ночи',ex:'Lahko noč, nasvidenje.',ctx:'На прощание вечером'},
-  {w:'nasvidenje',t:'до свидания',ex:'Nasvidenje, lep dan!',ctx:'Формальное прощание'},
-  {w:'sem ...',t:'я ...',ex:'Sem Aleksander.',ctx:'Представление'},
+// ─── УРОКИ ───────────────────────────────────────────────
+const LESSONS = [
+  {
+    id: '1.1',
+    title: 'Приветствия и знакомство',
+    meta: '~30 мин · 10 слов',
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, русскоязычный, уровень A0, цель — переехать в Словению и открыть языковую школу. Урок 1.1 "Приветствия и знакомство". Тема: pozdravljeni, živjo, dober dan, dobro jutro, dober večer, lahko noč, nasvidenje, представление Sem..., Moje ime je... Правила: отвечай на русском, словенские слова пиши через HTML тег <em>слово</em>, давай одно упражнение за раз, исправляй мягко, НЕ используй markdown (#, **, ---), кратко 3-5 предложений, сразу начни урок без вопросов.`,
+    vocab: [
+      {w:'pozdravljeni',t:'здравствуйте',ex:'Pozdravljeni v Sloveniji!',ctx:'Формальное приветствие'},
+      {w:'živjo',t:'привет',ex:'Živjo, kako si?',ctx:'Неформально'},
+      {w:'hvala',t:'спасибо',ex:'Hvala lepa!',ctx:'hvala lepa = большое спасибо'},
+      {w:'prosim',t:'пожалуйста',ex:'Prosim, en kava.',ctx:'Также: пожалуйста (в ответ)'},
+      {w:'ja / ne',t:'да / нет',ex:'Ja, razumem.',ctx:'Базовые ответы'},
+      {w:'dober dan',t:'добрый день',ex:'Dober dan, sem Ana.',ctx:'Официальное приветствие'},
+      {w:'dobro jutro',t:'доброе утро',ex:'Dobro jutro!',ctx:'До 12:00'},
+      {w:'lahko noč',t:'спокойной ночи',ex:'Lahko noč, nasvidenje.',ctx:'На прощание вечером'},
+      {w:'nasvidenje',t:'до свидания',ex:'Nasvidenje, lep dan!',ctx:'Формальное прощание'},
+      {w:'sem ...',t:'я ...',ex:'Sem Aleksander.',ctx:'Представление'},
+    ]
+  },
+  {
+    id: '1.2',
+    title: 'Числа 1–20',
+    meta: '~30 мин · 20 слов',
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, русскоязычный, уровень A0. Урок 1.2 "Числа 1-20". Тема: ena, dve, tri, štiri, pet, šest, sedem, osem, devet, deset, enajst, dvanajst, trinajst, štirinajst, petnajst, šestnajst, sedemnajst, osemnajst, devetnajst, dvajset. Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, давай упражнения на счёт и произношение, НЕ используй markdown, кратко 3-5 предложений, сразу начни урок.`,
+    vocab: [
+      {w:'ena',t:'один (1)',ex:'Ena kava, prosim.',ctx:'Числа по-словенски'},
+      {w:'dve',t:'два (2)',ex:'Dve uri.',ctx:''},
+      {w:'tri',t:'три (3)',ex:'Tri kave.',ctx:''},
+      {w:'štiri',t:'четыре (4)',ex:'Štiri minutе.',ctx:''},
+      {w:'pet',t:'пять (5)',ex:'Pet evrov.',ctx:''},
+      {w:'šest',t:'шесть (6)',ex:'Šest dni.',ctx:''},
+      {w:'sedem',t:'семь (7)',ex:'Sedem ur.',ctx:''},
+      {w:'osem',t:'восемь (8)',ex:'Osem mesecev.',ctx:''},
+      {w:'devet',t:'девять (9)',ex:'Devet let.',ctx:''},
+      {w:'deset',t:'десять (10)',ex:'Deset evrov.',ctx:''},
+      {w:'enajst',t:'одиннадцать (11)',ex:'Enajst ur.',ctx:''},
+      {w:'dvanajst',t:'двенадцать (12)',ex:'Dvanajst mesecev.',ctx:''},
+      {w:'petnajst',t:'пятнадцать (15)',ex:'Petnajst minut.',ctx:''},
+      {w:'dvajset',t:'двадцать (20)',ex:'Dvajset evrov.',ctx:''},
+    ]
+  },
+  {
+    id: '1.3',
+    title: 'Цвета и описания',
+    meta: '~25 мин · 10 слов',
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A0-A1. Урок 1.3 "Цвета и описания". Тема: rdeča (красный), modra (синий), zelena (зелёный), rumena (жёлтый), bela (белый), črna (чёрный), velika (большой), majhna (маленький), lepa (красивый), stara (старый). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:'rdeča',t:'красный',ex:'Rdeča hiša.',ctx:'Цвет'},
+      {w:'modra',t:'синий/голубой',ex:'Modro nebo.',ctx:'Цвет'},
+      {w:'zelena',t:'зелёный',ex:'Zelena trava.',ctx:'Цвет'},
+      {w:'rumena',t:'жёлтый',ex:'Rumeno sonce.',ctx:'Цвет'},
+      {w:'bela',t:'белый',ex:'Bela sneg.',ctx:'Цвет'},
+      {w:'črna',t:'чёрный',ex:'Črna kava.',ctx:'Цвет'},
+      {w:'velika',t:'большой',ex:'Velika hiša.',ctx:'Описание'},
+      {w:'majhna',t:'маленький',ex:'Majhna mačka.',ctx:'Описание'},
+      {w:'lepa',t:'красивый',ex:'Lepa Slovenija.',ctx:'Описание'},
+      {w:'nova',t:'новый',ex:'Nova knjiga.',ctx:'Описание'},
+    ]
+  },
+  {
+    id: '1.4',
+    title: 'Семья',
+    meta: '~30 мин · 12 слов',
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1. Урок 1.4 "Семья". Тема: mama, oče, brat, sestra, sin, hči, mož, žena, dedek, babica, otrok, starši. Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:'mama',t:'мама',ex:'Moja mama je učiteljica.',ctx:'Семья'},
+      {w:'oče',t:'папа',ex:'Oče dela v pisarni.',ctx:'Семья'},
+      {w:'brat',t:'брат',ex:'Imam enega brata.',ctx:'Семья'},
+      {w:'sestra',t:'сестра',ex:'Sestra je mlajša.',ctx:'Семья'},
+      {w:'sin',t:'сын',ex:'Moj sin ima pet let.',ctx:'Семья'},
+      {w:'hči',t:'дочь',ex:'Hči je v šoli.',ctx:'Семья'},
+      {w:'mož',t:'муж',ex:'Moj mož dela.',ctx:'Семья'},
+      {w:'žena',t:'жена',ex:'Moja žena je doma.',ctx:'Семья'},
+      {w:'dedek',t:'дедушка',ex:'Dedek je upokojen.',ctx:'Семья'},
+      {w:'babica',t:'бабушка',ex:'Babica kuha kosilo.',ctx:'Семья'},
+      {w:'otrok',t:'ребёнок',ex:'Otroci se igrajo.',ctx:'Семья'},
+      {w:'starši',t:'родители',ex:'Starši so doma.',ctx:'Семья'},
+    ]
+  },
+  {
+    id: '1.5',
+    title: 'Кафе и еда',
+    meta: '~35 мин · 12 слов',
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1. Урок 1.5 "Кафе и еда". Тема: заказ в кафе, еда и напитки: kava, čaj, voda, pivo, vino, kruh, juha, meso, solata, sladica, račun, naročiti. Научи заказывать в кафе. Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:'kava',t:'кофе',ex:'Ena kava, prosim.',ctx:'Напитки'},
+      {w:'čaj',t:'чай',ex:'Čaj z mlekom.',ctx:'Напитки'},
+      {w:'voda',t:'вода',ex:'Kozarec vode, prosim.',ctx:'Напитки'},
+      {w:'pivo',t:'пиво',ex:'Eno pivo, prosim.',ctx:'Напитки'},
+      {w:'kruh',t:'хлеб',ex:'Svež kruh.',ctx:'Еда'},
+      {w:'juha',t:'суп',ex:'Topla juha.',ctx:'Еда'},
+      {w:'meso',t:'мясо',ex:'Pečeno meso.',ctx:'Еда'},
+      {w:'solata',t:'салат',ex:'Zelena solata.',ctx:'Еда'},
+      {w:'sladica',t:'десерт',ex:'Za sladico torta.',ctx:'Еда'},
+      {w:'račun',t:'счёт',ex:'Račun, prosim!',ctx:'В кафе'},
+      {w:'naročiti',t:'заказать',ex:'Rad bi naročil kavo.',ctx:'В кафе'},
+      {w:'koliko stane',t:'сколько стоит',ex:'Koliko stane kava?',ctx:'Цены'},
+    ]
+  },
+  {
+    id: '1.6',
+    title: 'Транспорт и город',
+    meta: '~30 мин · 12 слов',
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1. Урок 1.6 "Транспорт и город". Тема: avtobus, vlak, avto, taksi, letalo, postaja, center, ulica, levo, desno, naravnost, daleč. Научи спрашивать дорогу. Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:'avtobus',t:'автобус',ex:'Avtobus številka 6.',ctx:'Транспорт'},
+      {w:'vlak',t:'поезд',ex:'Vlak za Ljubljana.',ctx:'Транспорт'},
+      {w:'avto',t:'машина',ex:'Moj avto je rdeč.',ctx:'Транспорт'},
+      {w:'taksi',t:'такси',ex:'Pokličem taksi.',ctx:'Транспорт'},
+      {w:'postaja',t:'остановка/вокзал',ex:'Avtobusna postaja.',ctx:'Транспорт'},
+      {w:'levo',t:'налево',ex:'Zavijte levo.',ctx:'Направления'},
+      {w:'desno',t:'направо',ex:'Zavijte desno.',ctx:'Направления'},
+      {w:'naravnost',t:'прямо',ex:'Pojdite naravnost.',ctx:'Направления'},
+      {w:'ulica',t:'улица',ex:'Slovenska ulica.',ctx:'Город'},
+      {w:'center',t:'центр',ex:'Mestni center.',ctx:'Город'},
+      {w:'daleč',t:'далеко',ex:'Je daleč?',ctx:'Расстояние'},
+      {w:'blizu',t:'близко',ex:'Je blizu postaje.',ctx:'Расстояние'},
+    ]
+  },
+  {
+    id: '1.7',
+    title: 'Магазины и учреждения',
+    meta: '~30 мин · 10 слов',
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1. Урок 1.7 "Магазины и учреждения". Тема: trgovina, supermarket, banka, pošta, bolnišnica, lekarna, šola, hotel, restavracija, park. Научи называть места и спрашивать где они находятся. Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:'trgovina',t:'магазин',ex:'Kje je trgovina?',ctx:'Места'},
+      {w:'supermarket',t:'супермаркет',ex:'V supermarketu.',ctx:'Места'},
+      {w:'banka',t:'банк',ex:'Grem v banko.',ctx:'Места'},
+      {w:'pošta',t:'почта',ex:'Na pošti.',ctx:'Места'},
+      {w:'bolnišnica',t:'больница',ex:'Blizu bolnišnice.',ctx:'Места'},
+      {w:'lekarna',t:'аптека',ex:'V lekarni.',ctx:'Места'},
+      {w:'šola',t:'школа',ex:'Jezikovna šola.',ctx:'Места'},
+      {w:'hotel',t:'гостиница',ex:'V hotelu.',ctx:'Места'},
+      {w:'restavracija',t:'ресторан',ex:'Dobra restavracija.',ctx:'Места'},
+      {w:'park',t:'парк',ex:'V parku.',ctx:'Места'},
+    ]
+  },
+  {
+    id: '1.8',
+    title: 'Время и дни недели',
+    meta: '~35 мин · 14 слов',
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1. Урок 1.8 "Время и дни недели". Тема: ura (час), danes (сегодня), jutri (завтра), včeraj (вчера), ponedeljek, torek, sreda, četrtek, petek, sobota, nedelja, zjutraj, popoldan, zvečer. Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:'danes',t:'сегодня',ex:'Danes je ponedeljek.',ctx:'Время'},
+      {w:'jutri',t:'завтра',ex:'Jutri grem v Ljubljano.',ctx:'Время'},
+      {w:'včeraj',t:'вчера',ex:'Včeraj sem bil doma.',ctx:'Время'},
+      {w:'ponedeljek',t:'понедельник',ex:'V ponedeljek.',ctx:'Дни недели'},
+      {w:'torek',t:'вторник',ex:'V torek.',ctx:'Дни недели'},
+      {w:'sreda',t:'среда',ex:'V sredo.',ctx:'Дни недели'},
+      {w:'četrtek',t:'четверг',ex:'V četrtek.',ctx:'Дни недели'},
+      {w:'petek',t:'пятница',ex:'V petek.',ctx:'Дни недели'},
+      {w:'sobota',t:'суббота',ex:'V soboto.',ctx:'Дни недели'},
+      {w:'nedelja',t:'воскресенье',ex:'V nedeljo.',ctx:'Дни недели'},
+      {w:'zjutraj',t:'утром',ex:'Zjutraj pijem kavo.',ctx:'Время дня'},
+      {w:'popoldan',t:'днём',ex:'Popoldan delam.',ctx:'Время дня'},
+      {w:'zvečer',t:'вечером',ex:'Zvečer berem.',ctx:'Время дня'},
+      {w:'ura',t:'час/часы',ex:'Koliko je ura?',ctx:'Время'},
+    ]
+  },
+  {
+    id: '1.9',
+    title: 'Погода и природа',
+    meta: '~25 мин · 10 слов',
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1. Урок 1.9 "Погода и природа". Тема: sonce (солнце), dež (дождь), sneg (снег), veter (ветер), oblačno (облачно), toplo (тепло), hladno (холодно), lepo vreme (хорошая погода), gora (гора), jezero (озеро). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:'sonce',t:'солнце',ex:'Danes sije sonce.',ctx:'Погода'},
+      {w:'dež',t:'дождь',ex:'Pada dež.',ctx:'Погода'},
+      {w:'sneg',t:'снег',ex:'Pade sneg.',ctx:'Погода'},
+      {w:'veter',t:'ветер',ex:'Piha veter.',ctx:'Погода'},
+      {w:'oblačno',t:'облачно',ex:'Danes je oblačno.',ctx:'Погода'},
+      {w:'toplo',t:'тепло',ex:'Zunaj je toplo.',ctx:'Погода'},
+      {w:'hladno',t:'холодно',ex:'Pozimi je hladno.',ctx:'Погода'},
+      {w:'gora',t:'гора',ex:'Triglav je gora.',ctx:'Природа'},
+      {w:'jezero',t:'озеро',ex:'Blejsko jezero.',ctx:'Природа'},
+      {w:'lepo vreme',t:'хорошая погода',ex:'Danes je lepo vreme.',ctx:'Погода'},
+    ]
+  },
+  {
+    id: '1.10',
+    title: 'Работа и профессии',
+    meta: '~30 мин · 12 слов',
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1, сам планирует открыть языковую школу. Урок 1.10 "Работа и профессии". Тема: delo (работа), šola (школа), učitelj (учитель), direktor (директор), zdravnik (врач), prodajalec (продавец), kmet (фермер), delavec (рабочий), pisarna (офис), plača (зарплата). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:'delo',t:'работа',ex:'Iščem delo.',ctx:'Работа'},
+      {w:'šola',t:'школа',ex:'Jezikovna šola.',ctx:'Работа'},
+      {w:'učitelj',t:'учитель',ex:'Sem učitelj slovenščine.',ctx:'Профессии'},
+      {w:'direktor',t:'директор',ex:'Direktor šole.',ctx:'Профессии'},
+      {w:'zdravnik',t:'врач',ex:'Grem k zdravniku.',ctx:'Профессии'},
+      {w:'pisarna',t:'офис',ex:'Delam v pisarni.',ctx:'Работа'},
+      {w:'plača',t:'зарплата',ex:'Dobra plača.',ctx:'Работа'},
+      {w:'podjetje',t:'компания',ex:'Malo podjetje.',ctx:'Работа'},
+      {w:'sestanek',t:'встреча/совещание',ex:'Imam sestanek.',ctx:'Работа'},
+      {w:'računalnik',t:'компьютер',ex:'Delam za računalnikom.',ctx:'Работа'},
+      {w:'email',t:'электронная почта',ex:'Pošljem email.',ctx:'Работа'},
+      {w:'telefon',t:'телефон',ex:'Pokličem po telefonu.',ctx:'Работа'},
+    ]
+  },
+  {
+    id: '1.11',
+    title: 'Покупки и цены',
+    meta: '~30 мин · 10 слов',
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1. Урок 1.11 "Покупки и цены". Тема: купить/продать, цены, торговля: kupiti (купить), prodati (продать), koliko stane (сколько стоит), poceni (дёшево), drago (дорого), evro (евро), popust (скидка), blagajna (касса), vrečka (пакет), velikost (размер). Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни урок.`,
+    vocab: [
+      {w:'kupiti',t:'купить',ex:'Rad bi kupil.',ctx:'Покупки'},
+      {w:'koliko stane',t:'сколько стоит',ex:'Koliko stane to?',ctx:'Цены'},
+      {w:'poceni',t:'дёшево',ex:'To je poceni.',ctx:'Цены'},
+      {w:'drago',t:'дорого',ex:'To je predrago.',ctx:'Цены'},
+      {w:'evro',t:'евро',ex:'Pet evrov.',ctx:'Деньги'},
+      {w:'popust',t:'скидка',ex:'Ali imate popust?',ctx:'Покупки'},
+      {w:'blagajna',t:'касса',ex:'Pri blagajni.',ctx:'Магазин'},
+      {w:'velikost',t:'размер',ex:'Katera velikost?',ctx:'Одежда'},
+      {w:'oblačila',t:'одежда',ex:'Nova oblačila.',ctx:'Покупки'},
+      {w:'plačati',t:'заплатить',ex:'Plačam z kartico.',ctx:'Покупки'},
+    ]
+  },
+  {
+    id: '1.12',
+    title: 'Повторение A1',
+    meta: '~45 мин · все темы',
+    prompt: `Ты репетитор словенского языка. Студент: Алексей, уровень A1, прошёл все уроки 1.1-1.11. Урок 1.12 "Повторение A1". Проведи итоговое занятие: проверь знание приветствий, чисел, семьи, еды, транспорта, времени, работы. Составьте вместе диалог на словенском о жизни в Словении. Правила: отвечай на русском, словенские слова пиши через <em>тег</em>, НЕ используй markdown, кратко, сразу начни повторение.`,
+    vocab: [
+      {w:'Slovenija',t:'Словения',ex:'Živim v Sloveniji.',ctx:'Страна'},
+      {w:'Ljubljana',t:'Любляна',ex:'Ljubljana je lepa.',ctx:'Столица'},
+      {w:'slovenščina',t:'словенский язык',ex:'Učim se slovenščino.',ctx:'Язык'},
+      {w:'Slovenec',t:'словенец',ex:'On je Slovenec.',ctx:'Национальность'},
+      {w:'tujec',t:'иностранец',ex:'Sem tujec.',ctx:'Национальность'},
+      {w:'govoriti',t:'говорить',ex:'Govorim malo slovensko.',ctx:'Глаголы'},
+      {w:'razumeti',t:'понимать',ex:'Razumem te.',ctx:'Глаголы'},
+      {w:'učiti se',t:'учиться',ex:'Učim se slovenščino.',ctx:'Глаголы'},
+      {w:'živeti',t:'жить',ex:'Živim v Ljubljani.',ctx:'Глаголы'},
+      {w:'malo',t:'немного',ex:'Govorim malo slovensko.',ctx:'Наречия'},
+    ]
+  }
 ];
 
+// ─── ЛОГИН ───────────────────────────────────────────────
 function login() {
   const key = document.getElementById('user-key').value.trim();
   if (!key) return;
   userId = key;
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app').style.display = 'block';
-  loadProgress();
   setGreeting();
-  startLesson();
+  loadProgress().then(() => renderLessonList());
 }
 
 function setGreeting() {
   const h = new Date().getHours();
-  const greetings = h < 12
-    ? {sl:'Dobro jutro', ru:'Доброе утро'}
-    : h < 18
-    ? {sl:'Dober dan', ru:'Добрый день'}
-    : {sl:'Dober večer', ru:'Добрый вечер'};
-  document.getElementById('hero-greeting').textContent = greetings.sl;
-  document.getElementById('hero-sub').textContent = greetings.ru + ' · продолжаем';
+  const g = h < 12 ? {sl:'Dobro jutro',ru:'Доброе утро'} : h < 18 ? {sl:'Dober dan',ru:'Добрый день'} : {sl:'Dober večer',ru:'Добрый вечер'};
+  document.getElementById('hero-greeting').textContent = g.sl;
+  document.getElementById('hero-sub').textContent = g.ru + ' · продолжаем';
 }
 
+// ─── ПРОГРЕСС ────────────────────────────────────────────
 async function loadProgress() {
   try {
     const res = await fetch(WORKER + '/progress/load', {
@@ -376,11 +569,8 @@ async function loadProgress() {
       body: JSON.stringify({userId})
     });
     const data = await res.json();
-    if (data.data) {
-      progress = data.data;
-      updateUI();
-    }
-  } catch(e) { console.log('Офлайн режим'); }
+    if (data.data) progress = data.data;
+  } catch(e) { console.log('Офлайн'); }
 }
 
 async function saveProgress() {
@@ -393,7 +583,7 @@ async function saveProgress() {
   } catch(e) {}
 }
 
-function updateUI() {
+function updateStats() {
   const w = progress.words || 0;
   const s = progress.streak || 0;
   const a = progress.accuracy ? Math.round(progress.accuracy) + '%' : '—';
@@ -404,17 +594,95 @@ function updateUI() {
   document.getElementById('p-streak').textContent = s;
   document.getElementById('p-accuracy').textContent = a;
   document.getElementById('p-lessons').textContent = progress.lessons || 0;
-  const p1 = Math.min(100, Math.round((w / 600) * 100));
+  const p1 = Math.min(100, Math.round((w / 120) * 100));
   document.getElementById('phase1-fill').style.width = p1 + '%';
   document.getElementById('phase1-pct').textContent = p1 + '%';
 }
 
-function goTo(screen) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(screen).classList.add('active');
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  const map = {'s-home':'nav-home','s-cards':'nav-cards','s-chat':'nav-chat','s-progress':'nav-progress'};
-  if (map[screen]) document.getElementById(map[screen]).classList.add('active');
+// ─── СПИСОК УРОКОВ ───────────────────────────────────────
+function renderLessonList() {
+  updateStats();
+  const container = document.getElementById('lesson-list');
+  container.innerHTML = '';
+  const lessonProgress = progress.lessons_progress || {};
+
+  LESSONS.forEach(lesson => {
+    const lp = lessonProgress[lesson.id] || 'new';
+    const numClass = lp === 'done' ? 'done' : lp === 'progress' ? 'active' : '';
+    const statusText = lp === 'done' ? 'Завершён' : lp === 'progress' ? 'В процессе' : 'Новый';
+    const statusClass = lp === 'done' ? 'status-done' : lp === 'progress' ? 'status-progress' : 'status-new';
+
+    const row = document.createElement('div');
+    row.className = 'lesson-row';
+    row.innerHTML = `
+      <div class="lesson-num ${numClass}">${lesson.id}</div>
+      <div class="lesson-info">
+        <div class="lesson-row-title">${lesson.title}</div>
+        <div class="lesson-row-meta">${lesson.meta}</div>
+      </div>
+      <div class="lesson-status ${statusClass}">${statusText}</div>
+    `;
+    row.onclick = () => openLesson(lesson);
+    container.appendChild(row);
+  });
+}
+
+// ─── ОТКРЫТЬ УРОК ────────────────────────────────────────
+function openLesson(lesson) {
+  currentLesson = lesson;
+  document.getElementById('chat-title').textContent = 'Урок ' + lesson.id + ' — ' + lesson.title;
+  document.getElementById('chat-messages').innerHTML = '';
+
+  // Пометить как "в процессе"
+  if (!progress.lessons_progress) progress.lessons_progress = {};
+  if (progress.lessons_progress[lesson.id] !== 'done') {
+    progress.lessons_progress[lesson.id] = 'progress';
+  }
+  saveProgress();
+
+  goTo('s-chat');
+
+  // Проверить checkpoint для этого урока
+  const checkpoint = progress.checkpoints && progress.checkpoints[lesson.id];
+  if (checkpoint && checkpoint.messages && checkpoint.messages.length > 1) {
+    messages = checkpoint.messages;
+    messages.forEach(m => {
+      if (m.role === 'assistant') addBubble(renderMarkdown(m.content), 'ai');
+      if (m.role === 'user') addBubble(m.content, 'user');
+    });
+    addBubble('<em style="color:var(--gold)">↩ Продолжаем с места остановки</em>', 'ai');
+  } else {
+    startLesson(lesson);
+  }
+}
+
+function repeatLesson() {
+  if (!currentLesson) return;
+  document.getElementById('chat-messages').innerHTML = '';
+  startLesson(currentLesson);
+}
+
+// ─── КАРТОЧКИ ────────────────────────────────────────────
+function openCards(lesson) {
+  currentLesson = lesson;
+  cardIndex = 0; flipped = false; correct = 0; total = 0;
+  document.getElementById('cards-screen-title').textContent = 'Урок ' + lesson.id;
+  loadCard();
+  goTo('s-cards');
+}
+
+function loadCard() {
+  const vocab = currentLesson ? currentLesson.vocab : LESSONS[0].vocab;
+  const c = vocab[cardIndex];
+  document.getElementById('fc-word').textContent = c.w;
+  document.getElementById('fc-trans').textContent = c.t;
+  document.getElementById('fc-ex').textContent = '«' + c.ex + '»';
+  document.getElementById('fc-ctx').textContent = c.ctx;
+  document.getElementById('fc-hint').style.display = 'block';
+  document.getElementById('fc-answer').style.display = 'none';
+  document.getElementById('rate-btns').style.display = 'none';
+  document.getElementById('fc-count').textContent = (cardIndex + 1) + ' / ' + vocab.length;
+  document.getElementById('fc-progress').style.width = ((cardIndex + 1) / vocab.length * 100) + '%';
 }
 
 function flipCard() {
@@ -426,36 +694,21 @@ function flipCard() {
 }
 
 function rateCard(score) {
+  const vocab = currentLesson ? currentLesson.vocab : LESSONS[0].vocab;
   total++;
   if (score === 2) correct++;
   cardIndex = (cardIndex + 1) % vocab.length;
   flipped = false;
-  const c = vocab[cardIndex];
-  document.getElementById('fc-word').textContent = c.w;
-  document.getElementById('fc-trans').textContent = c.t;
-  document.getElementById('fc-ex').textContent = '«' + c.ex + '»';
-  document.getElementById('fc-ctx').textContent = c.ctx;
-  document.getElementById('fc-hint').style.display = 'block';
-  document.getElementById('fc-answer').style.display = 'none';
-  document.getElementById('rate-btns').style.display = 'none';
-  document.getElementById('fc-count').textContent = (cardIndex + 1) + ' / ' + vocab.length;
-  document.getElementById('fc-progress').style.width = ((cardIndex + 1) / vocab.length * 100) + '%';
+  loadCard();
   if (total > 0) {
     progress.accuracy = (correct / total) * 100;
     progress.words = (progress.words || 0) + (score === 2 ? 1 : 0);
     saveProgress();
-    updateUI();
+    updateStats();
   }
 }
 
-function addBubble(text, type) {
-  const div = document.createElement('div');
-  div.className = 'bubble bubble-' + type;
-  div.innerHTML = text;
-  document.getElementById('chat-messages').appendChild(div);
-  div.scrollIntoView({behavior:'smooth'});
-}
-
+// ─── ЧАТ ─────────────────────────────────────────────────
 function renderMarkdown(text) {
   return text
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
@@ -463,10 +716,11 @@ function renderMarkdown(text) {
     .replace(/\n\n/g, '<br><br>')
     .replace(/\n/g, '<br>');
 }
-async function startLesson() {
+
+async function startLesson(lesson) {
   messages = [{
     role: 'system',
-    content: `Ты репетитор словенского языка. Студент: Алексей, русскоязычный, уровень A0, цель — переехать в Словению и открыть языковую школу. Текущий урок: 1.1 Приветствия и знакомство. Тема: pozdravljeni, živjo, dober dan, dobro jutro, dober večer, lahko noč, nasvidenje, представление Sem..., Moje ime je... Правила: отвечай на русском, словенские слова пиши через HTML тег <em>слово</em>, давай одно упражнение за раз, исправляй мягко, НЕ используй markdown (#, **, ---), отвечай кратко 3-5 предложений, сразу начни урок без вопросов.`
+    content: lesson.prompt
   }];
   const res = await callClaude([...messages, {role:'user', content:'Начни урок'}]);
   if (res) {
@@ -502,18 +756,38 @@ async function callClaude(msgs) {
     return data.choices?.[0]?.message?.content || 'Ошибка ответа';
   } catch(e) {
     document.getElementById('chat-messages').lastChild?.remove();
-    addBubble('Ошибка соединения. Проверьте интернет.', 'ai');
+    addBubble('Ошибка соединения.', 'ai');
     return null;
   }
 }
 
+function addBubble(text, type) {
+  const div = document.createElement('div');
+  div.className = 'bubble bubble-' + type;
+  div.innerHTML = text;
+  document.getElementById('chat-messages').appendChild(div);
+  div.scrollIntoView({behavior:'smooth'});
+}
+
 async function saveCheckpoint() {
-  progress.checkpoint = {
+  if (!currentLesson) return;
+  if (!progress.checkpoints) progress.checkpoints = {};
+  progress.checkpoints[currentLesson.id] = {
     messages: messages,
     timestamp: new Date().toISOString()
   };
   await saveProgress();
-  addBubble('✓ Место сохранено. Можете закрыть приложение — продолжим с этого места.', 'ai');
+  addBubble('✓ Место сохранено. Можете закрыть приложение.', 'ai');
+}
+
+// ─── НАВИГАЦИЯ ───────────────────────────────────────────
+function goTo(screen) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(screen).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const map = {'s-home':'nav-home','s-cards':'nav-cards','s-chat':'nav-chat','s-progress':'nav-progress'};
+  if (map[screen]) document.getElementById(map[screen]).classList.add('active');
+  if (screen === 's-home') renderLessonList();
 }
 </script>
 </body>
