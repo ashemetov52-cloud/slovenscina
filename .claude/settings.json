@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"\nimport sys, json, subprocess\nd = json.load(sys.stdin)\nfp = d.get('tool_input', {}).get('file_path', '')\nif fp.endswith('index.html'):\n    r = subprocess.run(['git', 'stash', '--include-untracked', '-m', 'auto-stash before index.html edit'], capture_output=True, text=True)\n    msg = r.stdout.strip() or r.stderr.strip()\n    if msg and msg != 'No local changes to save':\n        print(json.dumps({'systemMessage': 'git stash: ' + msg}))\n\" 2>/dev/null || true",
+            "statusMessage": "Stashing before index.html edit..."
+          }
+        ]
+      }
+    ]
+  }
+}
