@@ -135,6 +135,29 @@
 
     /* REPEAT BTN */
     .repeat-btn { margin: 0 16px 8px; padding: 10px; border-radius: 12px; background: var(--bg3); border: 0.5px solid var(--border); color: var(--text3); font-size: 12px; cursor: pointer; text-align: center; font-family: 'DM Sans', sans-serif; }
+
+    /* GAME */
+    .game-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px 10px; }
+    .game-round-lbl { font-size: 12px; color: var(--text3); }
+    .game-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 8px 16px; }
+    .game-card { height: 88px; border-radius: 14px; cursor: pointer; perspective: 600px; }
+    .game-card-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.35s ease; border-radius: 14px; }
+    .game-card.flipped .game-card-inner { transform: rotateY(180deg); }
+    .game-card-front, .game-card-back { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
+    .game-card-front { background: var(--surface); border: 0.5px solid var(--border); }
+    .game-card-back { background: var(--surface); border: 0.5px solid var(--border2); transform: rotateY(180deg); font-family: 'Crimson Pro', serif; font-size: 17px; color: var(--green-light); padding: 6px; text-align: center; line-height: 1.3; }
+    .game-card.correct .game-card-back { background: #ffb3c6; border-color: #ff6b8a; color: #6d0020; }
+    .game-card.active-card .game-card-back { border-color: var(--gold); }
+    .game-choices { padding: 8px 16px 0; display: flex; flex-direction: column; gap: 7px; }
+    .game-choice { padding: 11px 16px; background: var(--surface); border: 0.5px solid var(--border); border-radius: 12px; font-size: 14px; color: #e8f0eb; cursor: pointer; font-family: 'DM Sans', sans-serif; text-align: left; }
+    .game-choice:active { border-color: var(--green); }
+    .game-choice-hint { padding: 10px 16px; font-size: 13px; color: var(--text3); text-align: center; }
+    .game-next-btn { display: block; margin: 0 16px 8px; width: calc(100% - 32px); padding: 13px; background: var(--green); border: none; border-radius: 14px; color: #fff; font-size: 15px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+    .slo-flag { margin: 0 16px 8px; border-radius: 14px; overflow: hidden; height: 72px; display: flex; flex-direction: column; border: 0.5px solid var(--border); position: relative; }
+    .flag-stripe-blue { flex: 1; background: #003DA5; }
+    .flag-stripe-white { flex: 1; background: #FFFFFF; }
+    .flag-stripe-red { flex: 1; background: #EF3340; }
+    .flag-coat { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 32px; height: 40px; }
   </style>
 </head>
 <body>
@@ -287,10 +310,27 @@
 
   <!-- GAME -->
   <div class="screen" id="s-game">
-    <div class="progress-header">
-      <div class="progress-title">Игра</div>
-      <div class="progress-sub">Скоро</div>
+    <div class="game-header">
+      <div class="game-stars" id="game-stars"></div>
+      <div class="game-round-lbl" id="game-round-lbl">Раунд 1</div>
     </div>
+    <div class="slo-flag" id="slo-flag" style="display:none">
+      <div class="flag-stripe-blue"></div>
+      <div class="flag-stripe-white"></div>
+      <div class="flag-stripe-red"></div>
+      <svg class="flag-coat" viewBox="0 0 32 40" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1,1 L31,1 L31,28 Q16,39 1,28 Z" fill="#003DA5" stroke="#fff" stroke-width="1"/>
+        <text x="5" y="13" font-size="7" fill="#FFD700">&#9733;</text>
+        <text x="13" y="9" font-size="7" fill="#FFD700">&#9733;</text>
+        <text x="21" y="13" font-size="7" fill="#FFD700">&#9733;</text>
+        <path d="M6,26 L11,16 L16,22 L21,13 L26,26 Z" fill="white"/>
+        <path d="M6,29 Q11,26 16,29 Q21,32 26,29" stroke="#6ab0ff" stroke-width="1.5" fill="none"/>
+        <path d="M6,32 Q11,29 16,32 Q21,35 26,32" stroke="#6ab0ff" stroke-width="1.5" fill="none"/>
+      </svg>
+    </div>
+    <button class="game-next-btn" id="game-next-btn" style="display:none" onclick="gameNextRound()">Играть ещё →</button>
+    <div class="game-grid" id="game-grid"></div>
+    <div class="game-choices" id="game-choices"></div>
   </div>
   <!-- NAV -->
   <div class="nav">
@@ -1039,12 +1079,145 @@ async function saveCheckpoint() {
 
 // ─── НАВИГАЦИЯ ───────────────────────────────────────────
 function goTo(screen) {
+  const prev = document.querySelector('.screen.active');
+  if (prev && prev.id === 's-game' && screen !== 's-game') { gameStars = 0; gameRoundNum = 1; }
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(screen).classList.add('active');
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   const map = {'s-home':'nav-home','s-cards':'nav-cards','s-chat':'nav-chat','s-progress':'nav-progress','s-game':'nav-game'};
   if (map[screen]) document.getElementById(map[screen]).classList.add('active');
   if (screen === 's-home') renderLessonList();
+  if (screen === 's-game') gameInit();
+}
+
+// ─── ИГРА ────────────────────────────────────────────────
+let gamePool = [];
+let gameRound = [];
+let gameActive = null;
+let gameCorrect = [];
+let gameStars = 0;
+let gameRoundErrors = false;
+let gameRoundNum = 1;
+
+function gameInit() {
+  gamePool = [];
+  ALL_LESSONS.forEach(l => l.vocab.forEach(v => gamePool.push({w: v.w, t: v.t})));
+  gameStars = 0;
+  gameRoundNum = 1;
+  document.getElementById('slo-flag').style.display = 'none';
+  gameStartRound();
+}
+
+function gameShuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function gameStartRound() {
+  gameRound = gameShuffle(gamePool).slice(0, 9);
+  gameActive = null;
+  gameCorrect = [];
+  gameRoundErrors = false;
+  document.getElementById('game-round-lbl').textContent = 'Раунд ' + gameRoundNum;
+  document.getElementById('game-next-btn').style.display = 'none';
+  gameRenderStars();
+  gameRenderGrid();
+  gameShowChoices(null);
+}
+
+function gameRenderStars() {
+  const el = document.getElementById('game-stars');
+  el.innerHTML = '';
+  for (let i = 0; i < 5; i++) {
+    const s = document.createElement('span');
+    s.textContent = '★';
+    s.style.cssText = 'font-size:22px;color:' + (i < gameStars ? '#c8a96e' : '#b8d4ee');
+    el.appendChild(s);
+  }
+}
+
+function gameRenderGrid() {
+  const grid = document.getElementById('game-grid');
+  grid.innerHTML = '';
+  gameRound.forEach((card, i) => {
+    const el = document.createElement('div');
+    el.className = 'game-card' + (gameCorrect.includes(i) ? ' flipped correct' : '');
+    el.id = 'gc-' + i;
+    el.onclick = () => gameFlipCard(i);
+    el.innerHTML =
+      '<div class="game-card-inner">' +
+        '<div class="game-card-front">' +
+          '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--border2)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>' +
+        '</div>' +
+        '<div class="game-card-back">' + card.w + '</div>' +
+      '</div>';
+    grid.appendChild(el);
+  });
+}
+
+function gameFlipCard(i) {
+  if (gameCorrect.includes(i)) return;
+  if (gameActive !== null && gameActive !== i) {
+    const prev = document.getElementById('gc-' + gameActive);
+    prev.classList.remove('flipped', 'active-card');
+  }
+  gameActive = i;
+  const el = document.getElementById('gc-' + i);
+  el.classList.add('flipped', 'active-card');
+  gameShowChoices(i);
+}
+
+function gameShowChoices(cardIdx) {
+  const el = document.getElementById('game-choices');
+  if (cardIdx === null) {
+    el.innerHTML = '<div class="game-choice-hint">Выберите карточку</div>';
+    return;
+  }
+  const correct = gameRound[cardIdx];
+  const others = gameShuffle(gamePool.filter(c => c.t !== correct.t)).slice(0, 4);
+  const choices = gameShuffle([correct, ...others]);
+  el.innerHTML = '';
+  choices.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'game-choice';
+    btn.textContent = c.t;
+    btn.onclick = () => gameAnswer(c, correct, cardIdx);
+    el.appendChild(btn);
+  });
+}
+
+function gameAnswer(chosen, correct, cardIdx) {
+  if (chosen.t === correct.t) {
+    gameCorrect.push(cardIdx);
+    const el = document.getElementById('gc-' + cardIdx);
+    el.classList.remove('active-card');
+    el.classList.add('correct');
+    gameActive = null;
+    gameShowChoices(null);
+    if (gameCorrect.length === 9) {
+      if (!gameRoundErrors) gameStars = Math.min(5, gameStars + 1);
+      gameRenderStars();
+      document.getElementById('game-next-btn').style.display = 'block';
+      if (gameStars >= 5) document.getElementById('slo-flag').style.display = 'flex';
+    }
+  } else {
+    gameRoundErrors = true;
+    if (gameActive !== null) {
+      document.getElementById('gc-' + gameActive).classList.remove('flipped', 'active-card');
+      gameActive = null;
+    }
+    gameShowChoices(null);
+  }
+}
+
+function gameNextRound() {
+  gameRoundNum++;
+  document.getElementById('slo-flag').style.display = 'none';
+  gameStartRound();
 }
 </script>
 </body>
