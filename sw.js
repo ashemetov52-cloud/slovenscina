@@ -1,4 +1,4 @@
-﻿const CACHE = 'slovenscina-v2';
+﻿const CACHE = 'slovenscina-v3';
 const FILES = ['/slovenscina/', '/slovenscina/index.html', '/slovenscina/manifest.json', '/slovenscina/icon.png'];
 
 self.addEventListener('install', e => {

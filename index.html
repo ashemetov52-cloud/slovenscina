@@ -1042,14 +1042,15 @@ async function sendMessage() {
 
 async function callClaude(msgs) {
   try {
-    addBubble('<em style="color:var(--text3)">печатает...</em>', 'ai');
+    addBubble('<em style="color:#9db8a8">печатает...</em>', 'ai');
     const res = await fetch(WORKER + '/chat', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({messages: msgs})
     });
     const data = await res.json();
-    document.getElementById('chat-messages').lastChild.remove();
+    const chatEl = document.getElementById('chat-messages');
+    if (chatEl.lastChild) chatEl.lastChild.remove();
     return data.choices?.[0]?.message?.content || 'Ошибка ответа';
   } catch(e) {
     document.getElementById('chat-messages').lastChild?.remove();
